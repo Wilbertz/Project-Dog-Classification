@@ -5,7 +5,7 @@ from torch.optim import lr_scheduler
 from PIL import ImageFile
 
 from basic_block import BasicBlock
-from ResNet import ResNet
+from res_net import ResNet
 from training_helper import train, test, get_loaders
 
 ImageFile.LOAD_TRUNCATED_IMAGES = True

@@ -4,7 +4,7 @@ from torch.optim import lr_scheduler
 import torch.nn as nn
 from PIL import ImageFile
 
-import Squeezenet
+import squeeze_net
 from training_helper import train, test, get_loaders
 
 ImageFile.LOAD_TRUNCATED_IMAGES = True
@@ -14,7 +14,7 @@ use_cuda = torch.cuda.is_available()
 loaders_transfer = get_loaders()
 
 # Specify model architecture
-model_transfer = Squeezenet.Squeezenet()
+model_transfer = squeeze_net.Squeezenet()
 
 if use_cuda:
     model_transfer = model_transfer.cuda()
