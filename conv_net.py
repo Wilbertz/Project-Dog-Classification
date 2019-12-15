@@ -13,7 +13,7 @@ class Net(nn.Module):
         self.conv4 = nn.Conv2d(128, 256, kernel_size=3, stride=1, padding=1)
         self.conv5 = nn.Conv2d(256, 512, kernel_size=3, stride=1, padding=1)
         self.pool = nn.MaxPool2d(kernel_size=2, stride=2)
-        self.fc_dim = 512*8*8  # depth channels * (image h/w (256) / 2**(# of max pool layers))**2
+        self.fc_dim = 512*7*7  # depth channels * (image h/w (256) / 2**(# of max pool layers))**2
         self.fc1 = nn.Linear(self.fc_dim, 1024)
         self.output = nn.Linear(1024, 133)  # 133 dog breed classes
         self.dropout = nn.Dropout(0.2)
