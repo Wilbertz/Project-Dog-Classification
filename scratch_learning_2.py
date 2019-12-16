@@ -10,6 +10,7 @@ from training_helper import train, test, get_loaders
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 use_cuda = torch.cuda.is_available()
+print(use_cuda)
 
 loaders_scratch = get_loaders()
 
@@ -18,7 +19,7 @@ model_scratch = Net()
 if use_cuda:
     model_scratch.cuda()
 
-print(model_scratch)
+# print(model_scratch)
 
 criterion_scratch = nn.CrossEntropyLoss()
 
