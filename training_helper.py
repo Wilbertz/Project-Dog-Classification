@@ -13,6 +13,7 @@ def get_loaders():
     train_dir = os.path.join(data_dir, 'train/')
     valid_dir = os.path.join(data_dir, 'valid/')
     test_dir = os.path.join(data_dir, 'test/')
+    debug_dir = os.path.join(data_dir, 'debug/')
 
     data_transforms = {
         'train': transforms.Compose([
@@ -28,13 +29,13 @@ def get_loaders():
             transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
         ]),
         'valid': transforms.Compose([
-            transforms.Resize((230, 230)),
+            transforms.Resize((256, 256)),
             transforms.CenterCrop(224),
             transforms.ToTensor(),
             transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
         ]),
         'test': transforms.Compose([
-            transforms.Resize((230, 230)),
+            transforms.Resize((256, 256)),
             transforms.CenterCrop(224),
             transforms.ToTensor(),
             transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
@@ -42,9 +43,9 @@ def get_loaders():
     }
     train_data = datasets.ImageFolder(train_dir, transform=data_transforms['train'])
     valid_data = datasets.ImageFolder(valid_dir, transform=data_transforms['valid'])
-    test_data = datasets.ImageFolder(test_dir, transform=data_transforms['test'])
+    test_data = datasets.ImageFolder(debug_dir, transform=data_transforms['test'])
 
-    batch_size = 64
+    batch_size = 1
     num_workers = 0
 
     train_loader = utils.data.DataLoader(train_data, batch_size=batch_size, num_workers=num_workers, shuffle=True)
