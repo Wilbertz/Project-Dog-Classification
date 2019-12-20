@@ -28,9 +28,9 @@ optimizer_scratch = optim.Adam(params=model_scratch.parameters(), lr=0.001)
 # reduce learning rate when a validation loss has stopped improving
 plateau_lr_scheduler = lr_scheduler.ReduceLROnPlateau(optimizer_scratch, 'min',  patience=7, verbose=True)
 
-model_scratch = train(500, loaders_scratch, model_scratch, optimizer_scratch,
-                      criterion_scratch, use_cuda, 'saved_models/model_scratch',
-                      plateau_lr_scheduler, patience=15)
+#model_scratch = train(500, loaders_scratch, model_scratch, optimizer_scratch,
+#                      criterion_scratch, use_cuda, 'saved_models/model_scratch',
+#                      plateau_lr_scheduler, patience=15)
 
 model_scratch.load_state_dict(torch.load('saved_models/checkpoint_old.pt', map_location='cpu'))
 
